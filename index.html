@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BagWay</title>
+    <style>
+        /* Estilos para a página inicial */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            background-color: #093364;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .search-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #45a049;
+        }
+
+        .product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            flex-direction: column;
+        }
+
+        .product img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product-info {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .product-info h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            font-size: 1.2em;
+            color: #0b3686;
+        }
+
+        .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: green;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Estilos para a página de pagamento */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        form {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos para o carrinho de compras */
+        .cart {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <img src="logo.png" alt="logo">
+        <h1>Bem vindo a BagWay!!</h1>
+        <p>Viaje com estilo, segurança e praticidade! ✈️🧳</p>
+        <p>No BagWay, você encontra as melhores malas para qualquer tipo de viagem. Seja uma aventura pelo mundo ou um
+            fim de semana especial, temos opções perfeitas para te acompanhar com conforto e elegância.</p>
+        <p>Escolha sua mala ideal e embarque na próxima jornada com confiança!</p>
+        <p>Explore agora e viaje sem preocupações!</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" placeholder="Buscar produtos...">
+        <button>🔍</button>
+    </div>
+
+    <section id="produtos" class="container">
+        <div class="product">
+            <img src="Kit Mala Grande 35kg + Mala Bordo 10kg POLIPROPILENO Maldivas.jpg" alt="imagem 1">
+            <div class="product-info">
+                <h2>Maleta Executiva</h2>
+                <p>Essa maleta executiva é ideal para profissionais que buscam qualidade, segurança e praticidade no seu dia
+                    a dia.</p>
+                <p class="price">R$ 499,99</p>
+                <button onclick="adicionarAoCarrinho('Maleta Executiva', 499.99)">Comprar Agora</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="Mala De Viagem Bordo 4 Rodinhas Rose Gold Cadeado 3 Segredos Cor Azul-marinho Liso.jpg" alt="imagem 2">
+            <div class="product-info">
+                <h2>Maleta de Viagem</h2>
+                <p>Maleta compacta e resistente, ideal para organizar e transportar itens com segurança e praticidade.</p>
+                <p class="price">R$ 349,99</p>
+                <button onclick="adicionarAoCarrinho('Maleta de Viagem', 349.99)">Comprar Agora</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="Mala De Bordo 10Kg Expansível Preta Maldivas Ultra Leve.jpg" alt="imagem 3">
+            <div class="product-info">
+                <h3>Maleta de Viagem</h3>
+                <p>Leve, prática e segura, a maleta de viagem é perfeita para quem precisa transportar seus
+                    pertences com organização e estilo.
+                    Seu design compacto e resistente garante proteção e conforto em qualquer trajeto.</p>
+                <p class="price">R$ 599,99</p>
+                <button onclick="adicionarAoCarrinho('Maleta de Viagem', 599.99)">Comprar Agora</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="Mala de Viagem Expansível Coolife 28 Polegadas - PC+ABS - Branca.jpg" alt="imagem 4">
+            <div class="product-info">
+                <h3>Maleta de Viagem</h3>
+                <p>A mala de viagem combina resistência e praticidade, garantindo organização e segurança
+                    para seus pertences em qualquer jornada.</p>
+                <p class="price">R$ 599,99</p>
+                <button onclick="adicionarAoCarrinho('Maleta de Viagem', 599.99)">Comprar Agora</button>
+            </div>
+            <div class="product">
+                <img src="Mala de Viagem LUGGEX 20 Polegadas com Rodas Giratórias - Azul - Copia (3).jpg" alt="imagem 5">
+                <div class="product-info">
+                    <h3>Maleta de Viagem</h3>
+                    <p>A mala de viagem combina resistência e praticidade.</p>
+                    <p class="price">R$ 679,99</p>
+                    <button onclick="adicionarAoCarrinho('Maleta de Viagem', 599.99)">Comprar Agora</button>
+        </div>
+        <div class="product">
+            <img src="Kit Duas Malas de Bordo 10kg + Mala Grande 35kg POLIPROPILENO Maldivas Sul BRANCO E MARROM.jpg" alt="imagem 6">
+            <div class="product-info">
+                <h3>Kit Malas de Viagem</h3>
+                <p>Um kit de malas de alta qualidade, combinando design sofisticado, resistência e organização inteligente para transformar cada viagem em uma experiência única.</p>
+                <p class="price">R$ 1099,99</p>
+                <button onclick="adicionarAoCarrinho('Maleta de Viagem', 599.99)">Comprar Agora</button>
+                </div>
+    </section>
+
+    <section id="contato" style="text-align: center; margin-top: 50px;">
+        <h2>Contato</h2>
+        <p>Endereço: Rua Brodway, 1, Centro, Vassouras - Rio de Janeiro, CEP: 27700-000</p>
+        <p>Email: bagway@gmail.com</p>
+        <p>Telefone: (24) 992327975</p>
+    </section>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Dados do Cartão</h2>
+        <form>
+            <label for="nome">Nome do Titular:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="numero">Número do Cartão:</label>
+            <input type="number" id="numero" name="numero" required>
+
+            <label for="data">Data de Validade:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" name="cvv" required>
+
+            <button type="submit">Confirmar Pagamento</button>
+        </form>
+    </div>
+</body>
+</html>
+
+    <section id="pagamento" style="text-align: center; margin-top: 50px;">
+        <a href="pagamento.html">
+            <button>Finalizar Compra</button>
+        </a>
+    </section>
+
+    <div class="cart">
+        <h2>Carrinho de Compras</h2>
+        <div id="itensCarrinho"></div>
+        <button onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+
+    <script>
+        const carrinho = [];
+
+        function adicionarAoCarrinho(nome, preco) {
+            carrinho.push({ nome, preco });
+            atualizarCarrinho();
+        }
+
+        function atualizarCarrinho() {
+            const itensCarrinho = document.getElementById('itensCarrinho');
+            itensCarrinho.innerHTML = '';
+            carrinho.forEach((item, index) => {
+                itensCarrinho.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.nome} - R$ ${item.preco.toFixed(2)}</span>
+                        <button onclick="removerDoCarrinho(${index})">Remover</button>
+                    </div>
+                `;
+            });
+        }
+
+        function removerDoCarrinho(index) {
+            carrinho.splice(index, 1);
+            atualizarCarrinho();
+        }
+
+        function finalizarCompra() {
+            alert('Redirecionando para a página de pagamento...');
+            window.location.href = "pagamento.html"; // Redireciona para a página de pagamento
+        }
+    </script>
+
+<footer style="text-align: center; margin-top: 50px; background-color: #c5d4f1; padding: 20px;">
+    <p>© 2023 BagWay - Todos os direitos reservados.</p>
+    <p>Adoramos te ajudar a encontrar a mala perfeita para suas viagens. Até a próxima aventura!.</p>
+</footer>
+
+
+</body>
+
+</html>
